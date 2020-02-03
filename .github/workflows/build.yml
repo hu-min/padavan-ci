@@ -24,14 +24,14 @@ jobs:
           toolchain_url: "https://github.com/hanwckf/padavan-toolchain/releases/download/v1.0/mipsel-linux-uclibc.tar.xz"
         run: |
           chmod a+x build_firmware_modify && cp build_firmware_modify /opt/
-          cd /opt && git clone --depth=1 https://github.com/hanwckf/rt-n56u.git
+          cd /opt && git clone --depth=1 https://github.com/hu-min/rt-n56u.git
           rm -rf ./rt-n56u/toolchain-mipsel/ && mkdir -p ./rt-n56u/toolchain-mipsel/toolchain-3.4.x && mkdir -p ./images
           wget $toolchain_url && tar -xf mipsel-linux-uclibc.tar.xz -C ./rt-n56u/toolchain-mipsel/toolchain-3.4.x
           cp -f /opt/build_firmware_modify /opt/rt-n56u/trunk/
 
       - name: build
         env: 
-          targets: "MR2600-5.0 MI-MINI"
+          targets: "K2P-SELF"
         run: |
           ls -Alh /opt/rt-n56u && cd /opt/rt-n56u/trunk/
           for m in $targets; do fakeroot ./build_firmware_nohup $m && cp -f images/*.trx /opt/images/$m.trx; ./clear_tree_simple >/dev/null 2>&1; done
