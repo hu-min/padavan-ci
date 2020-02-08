@@ -1,8 +1,4 @@
-TIME=`date +%y%m%d%H%M`
-export TIME=$TIME
-name: Padavan Builder - $TIME
-
-on:
+name: Padavan Builder
   push:
     branches:
       - master
