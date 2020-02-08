@@ -1,4 +1,6 @@
-name: Padavan Builder - 20200207
+TIME=`date +%y%m%d%H%M`
+export TIME=$TIME
+name: Padavan Builder - $TIME
 
 on:
   push:
