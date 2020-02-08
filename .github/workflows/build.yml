@@ -1,4 +1,4 @@
-name: Padavan Builder - 20200207
+name: Padavan Builder - {date +%y%m%d%H%M}
 
 on:
   push:
